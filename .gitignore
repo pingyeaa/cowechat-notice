@@ -1,1 +1,6 @@
 config.json
+/.idea/cowechat-notice.iml
+/go.sum
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/watcherTasks.xml
