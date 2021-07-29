@@ -7,9 +7,9 @@ import (
 )
 
 // GetConfig 获取配置
-func GetConfig() (*types.Config, error) {
+func GetConfig(confPath string) (*types.Config, error) {
 	var config *types.Config
-	f, err := os.Open("config.json")
+	f, err := os.Open(confPath)
 	if err != nil {
 		return nil, err
 	}

@@ -4,10 +4,23 @@ import (
 	"cowechat-notice/config"
 	"cowechat-notice/cowechat"
 	"cowechat-notice/cron"
+	"os"
 )
 
 func main() {
-	confs, err := config.GetConfig()
+
+	confPath := "config.json"
+	if len(os.Args) == 3 {
+		if os.Args[1] != "-c" {
+			panic("命令参考格式：cowechat-notice -c [配置文件路径]")
+		}
+		if os.Args[2] == "" {
+			panic("命令参考格式：cowechat-notice -c [配置文件路径]")
+		}
+		confPath = os.Args[2]
+	}
+
+	confs, err := config.GetConfig(confPath)
 	if err != nil {
 		panic(err)
 	}
